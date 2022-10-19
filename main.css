@@ -1,0 +1,223 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: #fafafa;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    height: 45px;
+    background-color: rgba(186, 217, 237, 0.3);
+}
+
+#health-screen {
+    /*    display: none;*/
+    position: relative;
+    width: 278px;
+    height: 26px;
+    /*    border: solid 1px red;*/
+}
+
+.none-header {
+    display: none;
+}
+
+.health-level {
+    display: inline-block;
+    width: 28px;
+    height: 26px;
+    margin-left: -4px;
+    background-color: #2b961f;
+    /*    border: solid 1px red;*/
+}
+
+.health-animation {
+    animation-iteration-count: 1;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-name: movementHealth;
+    animation-fill-mode: forwards;
+}
+
+@keyframes movementHealth {
+    to {
+        width: 0;
+    }
+}
+
+#score {
+    width: 60px;
+    height: 43px;
+    justify-self: end;
+    border: solid 1px black;
+    text-align: center;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    background-color: #eaeaea;
+}
+
+#random-key {
+    width: 40px;
+    height: 43px;
+    justify-self: center;
+    border: solid 1px black;
+    text-align: center;
+    padding-top: 4px;
+    font-family: inherit;
+    font-size: 30px;
+    background-color: #eaeaea;
+}
+
+#falling-key {
+    width: 40px;
+    height: 43px;
+    border: solid 1px black;
+    text-align: center;
+    padding-top: 4px;
+    font-family: inherit;
+    font-size: 30px;
+    background-color: #eaeaea;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: movementDown;
+    animation-fill-mode: forwards;
+    border-radius: 80%;
+    z-index: -1;
+}
+
+@keyframes movementDown {
+    from {
+        top: 0;
+    }
+    to {
+        top: 350px;
+    }
+}
+
+#start-game {
+    display: flex;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#start-btn {
+    width: 100px;
+    height: 100px;
+    margin-top: 140px;
+    border: solid 1px darkolivegreen;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 35px;
+    color: #f40000;
+}
+
+#loss {
+    display: none;
+    text-align: center;
+    font-family: inherit;
+    font-size: 35px;
+    color: #f40000;
+    padding-top: 120px;
+}
+
+#game-over {
+    display: none;
+    text-align: center;
+    font-family: inherit;
+    font-size: 35px;
+    color: #f40000;
+    padding-top: 120px;
+}
+
+#pause {
+    display: none;
+    width: 400px;
+    height: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px;
+    padding-top: 15px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 50px;
+    color: #2b961f;
+    background-color: #eaeaea;
+    border: solid 1px darkolivegreen;
+    border-radius: 4px;
+}
+
+#continuation {
+    display: inline-block;
+    border: solid 1px darkolivegreen;
+    border-radius: 4px;
+}
+
+#exit {
+    display: inline-block;
+    margin-left: 55px;
+    border: solid 1px darkolivegreen;
+    border-radius: 4px;
+}
+
+#keyboard {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+    border-top: solid 2px #eaeaea;
+    background-color: #d0d0d0;
+}
+
+#keys {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    font-family: inherit;
+    background-color: #e0e0e0;
+    border: solid 1px black;
+    border-radius: 4px;
+}
+.highlight {
+    border: solid 1px white;
+    color: white;
+}
+
+.colorTargetKey {
+    border: solid 2px #edd951;
+    color: black;
+}
+
+#keys > div:nth-child(2) {
+    margin-left: 110px;
+}
+
+#keys > div:nth-child(3) {
+    margin-left: 150px;
+}
+
+#keys > div:nth-child(4) {
+    margin-left: 90px;
+}
