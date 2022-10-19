@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Тренажер для быстрой печати</title>
+        <link rel="stylesheet" href="main.css" />
+        <script src="jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="health-screen"></div>
+
+            <div id="random-key"></div>
+
+            <div id="score">0</div>
+        </header>
+
+        <div id="falling-key"></div>
+        <div id="loss">
+            Игра завершена! <br />
+            Количество набранных очков:
+        </div>
+        <div id="game-over">
+            Игра завершена! <br />
+            Количество набранных очков:
+        </div>
+        <div id="pause">
+            <div>Пауза</div>
+            <button id="continuation">Продолжить</button
+            ><button id="exit">Выход</button>
+        </div>
+
+        <div id="keyboard">
+            <div id="keys">
+                <div>
+                    <div class="button" data-key="§">&nbsp;</div>
+                    <div class="button" data-key="1">&nbsp;</div>
+                    <div class="button" data-key="2">&nbsp;</div>
+                    <div class="button" data-key="3">&nbsp;</div>
+                    <div class="button" data-key="4">&nbsp;</div>
+                    <div class="button" data-key="5">&nbsp;</div>
+                    <div class="button" data-key="6">&nbsp;</div>
+                    <div class="button" data-key="7">&nbsp;</div>
+                    <div class="button" data-key="8">&nbsp;</div>
+                    <div class="button" data-key="9">&nbsp;</div>
+                    <div class="button" data-key="0">&nbsp;</div>
+                    <div class="button" data-key="-">&nbsp;</div>
+                    <div class="button" data-key="=">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="button" data-key="Q">&nbsp;</div>
+                    <div class="button" data-key="W">&nbsp;</div>
+                    <div class="button" data-key="E">&nbsp;</div>
+                    <div class="button" data-key="R">&nbsp;</div>
+                    <div class="button" data-key="T">&nbsp;</div>
+                    <div class="button" data-key="Y">&nbsp;</div>
+                    <div class="button" data-key="U">&nbsp;</div>
+                    <div class="button" data-key="I">&nbsp;</div>
+                    <div class="button" data-key="O">&nbsp;</div>
+                    <div class="button" data-key="P">&nbsp;</div>
+                    <div class="button" data-key="[">&nbsp;</div>
+                    <div class="button" data-key="]">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="button" data-key="A">&nbsp;</div>
+                    <div class="button" data-key="S">&nbsp;</div>
+                    <div class="button" data-key="D">&nbsp;</div>
+                    <div class="button" data-key="F">&nbsp;</div>
+                    <div class="button" data-key="G">&nbsp;</div>
+                    <div class="button" data-key="H">&nbsp;</div>
+                    <div class="button" data-key="J">&nbsp;</div>
+                    <div class="button" data-key="K">&nbsp;</div>
+                    <div class="button" data-key="L">&nbsp;</div>
+                    <div class="button" data-key=";">&nbsp;</div>
+                    <div class="button" data-key="'">&nbsp;</div>
+                    <div class="button" data-key="\">&nbsp;</div>
+                </div>
+                <div>
+                    <div class="button" data-key="Z">&nbsp;</div>
+                    <div class="button" data-key="X">&nbsp;</div>
+                    <div class="button" data-key="C">&nbsp;</div>
+                    <div class="button" data-key="V">&nbsp;</div>
+                    <div class="button" data-key="B">&nbsp;</div>
+                    <div class="button" data-key="N">&nbsp;</div>
+                    <div class="button" data-key="M">&nbsp;</div>
+                    <div class="button" data-key=",">&nbsp;</div>
+                    <div class="button" data-key=".">&nbsp;</div>
+                    <div class="button" data-key="/">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
