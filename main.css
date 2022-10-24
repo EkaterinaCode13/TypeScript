@@ -6,7 +6,7 @@
 
 body {
     margin: 0px;
-    background-color: #fafafa;
+    background-color: #14213d;
 }
 
 header {
@@ -14,7 +14,8 @@ header {
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: 45px;
-    background-color: rgba(186, 217, 237, 0.3);
+    background-color: #000000;
+    /* border-bottom: solid 1px #fca311; */
 }
 
 #health-screen {
@@ -34,7 +35,8 @@ header {
     width: 28px;
     height: 26px;
     margin-left: -4px;
-    background-color: #2b961f;
+    background-color: #fca311;
+    /* border-left: solid 1px #e5e5e5; */
     /*    border: solid 1px red;*/
 }
 
@@ -56,35 +58,40 @@ header {
     width: 60px;
     height: 43px;
     justify-self: end;
-    border: solid 1px black;
+    /* border-left: solid 1px #e5e5e5;
+    border-right: solid 1px #e5e5e5; */
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     font-family: inherit;
-    font-size: 20px;
-    background-color: #eaeaea;
+    font-size: 30px;
+    /* background-color: #14213d; */
+    color: #fca311;
 }
 
 #random-key {
     width: 40px;
     height: 43px;
     justify-self: center;
-    border: solid 1px black;
+    /* border-left: solid 1px #e5e5e5;
+    border-right: solid 1px #e5e5e5; */
     text-align: center;
-    padding-top: 4px;
+    /* padding-top: 4px; */
     font-family: inherit;
-    font-size: 30px;
-    background-color: #eaeaea;
+    font-size: 37px;
+    /* background-color: #14213d; */
+    color: #fca311;
 }
 
 #falling-key {
     width: 40px;
     height: 43px;
-    border: solid 1px black;
+    /* border: solid 2px #000000; */
+    color: #14213d;
+    background-color: #e5e5e5;
     text-align: center;
-    padding-top: 4px;
+    align-items: center;
     font-family: inherit;
     font-size: 30px;
-    background-color: #eaeaea;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -113,6 +120,7 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
+
 #start-btn {
     width: 100px;
     height: 100px;
@@ -128,8 +136,8 @@ header {
     display: none;
     text-align: center;
     font-family: inherit;
-    font-size: 35px;
-    color: #f40000;
+    font-size: 30px;
+    color: #e5e5e5;
     padding-top: 120px;
 }
 
@@ -137,8 +145,8 @@ header {
     display: none;
     text-align: center;
     font-family: inherit;
-    font-size: 35px;
-    color: #f40000;
+    font-size: 30px;
+    color: #e5e5e5;
     padding-top: 120px;
 }
 
@@ -153,22 +161,26 @@ header {
     text-align: center;
     font-family: inherit;
     font-size: 50px;
-    color: #2b961f;
-    background-color: #eaeaea;
-    border: solid 1px darkolivegreen;
+    border: solid 2px #e5e5e5;
+    color: #e5e5e5;
+    background-color: #14213d;
     border-radius: 4px;
+    box-shadow: 3px -2px 10px 1px rgba(255, 255, 255, 0.25),
+        3px 0px 10px 1px rgba(255, 255, 255, 0.25);
 }
 
 #continuation {
     display: inline-block;
-    border: solid 1px darkolivegreen;
+    border: solid 1px #fca311;
+    color: #14213d;
     border-radius: 4px;
 }
 
 #exit {
     display: inline-block;
     margin-left: 55px;
-    border: solid 1px darkolivegreen;
+    border: solid 1px #fca311;
+    color: #14213d;
     border-radius: 4px;
 }
 
@@ -179,8 +191,8 @@ header {
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
-    border-top: solid 2px #eaeaea;
-    background-color: #d0d0d0;
+    border-top: solid 1px #fca311;
+    background-color: #000000;
 }
 
 #keys {
@@ -196,8 +208,9 @@ header {
     height: 50px;
     margin: 3px;
     font-family: inherit;
-    background-color: #e0e0e0;
-    border: solid 1px black;
+    color: #e5e5e5;
+    background-color: #14213d;
+    border: solid 1px #e5e5e5;
     border-radius: 4px;
 }
 .highlight {
@@ -206,8 +219,8 @@ header {
 }
 
 .colorTargetKey {
-    border: solid 2px #edd951;
-    color: black;
+    border: solid 2px #fca311;
+    color: #e5e5e5;
 }
 
 #keys > div:nth-child(2) {

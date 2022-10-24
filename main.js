@@ -178,6 +178,7 @@ $(function () {
         },
         pause: function () {
             if (this.status == 'running') {
+                this.key.css('opacity', '0');
                 this.key.css('animation-play-state', 'paused');
                 this.status = 'paused';
                 log(this.status);
@@ -185,6 +186,7 @@ $(function () {
         },
         resume: function () {
             if (this.status == 'paused') {
+                this.key.css('opacity', '1');
                 this.key.css('animation-play-state', 'running');
                 this.status = 'running';
             }
