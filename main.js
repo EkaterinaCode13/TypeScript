@@ -25,6 +25,7 @@ $(function () {
                 ticker.stop();
                 ticker.start();
                 falling.start();
+                $('#pause').hide();
                 this.status = 'running';
             }
         },
@@ -335,14 +336,17 @@ $(function () {
     $('#pause').click(function (event) {
         var target = $(event.target);
 
-        if (target.is($('#exit'))) {
+        if (target.is($('#exit')) || target.is($('#exit p'))) {
             falling.hiding();
             $('#pause').hide();
             $('#game-over')
                 .show()
                 .html($('#game-over').html() + score.number);
             ticker.stop();
-        } else if (target.is($('#continuation'))) {
+        } else if (
+            target.is($('#continuation')) ||
+            target.is($('#continuation p'))
+        ) {
             game.resume();
         }
     });
