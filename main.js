@@ -25,7 +25,7 @@ $(function () {
                 ticker.stop();
                 ticker.start();
                 falling.start();
-                $('#pause').hide();
+                // $('#pause').hide();
                 this.status = 'running';
             }
         },
@@ -34,7 +34,7 @@ $(function () {
                 falling.pause();
                 keyboard.darken();
                 ticker.pause();
-                $('#pause').show();
+                $('#pause').css('display', 'flex');
                 this.status = 'pause';
             }
         },
@@ -310,22 +310,25 @@ $(function () {
     mainLoop();
 
     $('body').keydown(function (event) {
-        keyboard.press(event.key);
+        if (game.status == 'running') {
+            keyboard.press(event.key);
 
-        if (
-            $('.button[data-key="' + event.key.toUpperCase() + '"]').text() ===
-            falling.key.text().toUpperCase()
-        ) {
-            game.hit();
-        } else if (event.key != 'Escape') {
-            health.reduce();
-            if (!health.level) {
-                game.stop();
+            if (
+                $(
+                    '.button[data-key="' + event.key.toUpperCase() + '"]'
+                ).text() === falling.key.text().toUpperCase()
+            ) {
+                game.hit();
+            } else if (event.key != 'Escape') {
+                health.reduce();
+                if (!health.level) {
+                    game.stop();
+                }
             }
-        }
 
-        if (event.key == 'Escape') {
-            game.pause();
+            if (event.key == 'Escape') {
+                game.pause();
+            }
         }
     });
 
