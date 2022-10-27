@@ -8,6 +8,7 @@ $(function () {
         delay: 2000,
         status: 'stopped',
         isHitted: false,
+        nextMoveTimer: null,
 
         // -----------------------------------------------
 
@@ -27,6 +28,16 @@ $(function () {
                 falling.start();
                 this.status = 'running';
                 $('#timerStart').css('display', 'none');
+                // if (!health.level) {
+                //     this.status = 'stopped';
+
+                //     // clearTimeout(nextMoveKey);
+
+                //     $('#falling-key').css('animation', 'none');
+                //     $('#falling-key').css('display', 'none');
+                //     game.stop();
+                //     log('нет жизни');
+                // }
             }
         },
         pause: function () {
@@ -49,7 +60,9 @@ $(function () {
         },
         stop: function () {
             if (this.status != 'stopped') {
-                if (!health.level) {
+                if (!health.level && this.status != 'stopped') {
+                    log(game.status + '3');
+                    log('ЗАШЕЛ ЕЩЕ РАЗ');
                     falling.stop();
                     falling.hiding();
                     keyboard.darken();
@@ -58,27 +71,44 @@ $(function () {
                         .show()
                         .html($('#loss').html() + score.number);
                     this.status = 'stopped';
+                    clearTimeout(nextMoveTimer);
                 }
             }
         },
         update: function () {
-            this.isHitted = false;
+            if (game.status != 'stopped') {
+                this.isHitted = false;
 
-            var randomKey = getRandomKey(keyboard.activeKeys);
+                var randomKey = getRandomKey(keyboard.activeKeys);
 
-            keyboard.highlight(randomKey);
+                keyboard.highlight(randomKey);
 
-            $('#random-key').text(randomKey);
+                $('#random-key').text(randomKey);
 
-            falling.set(randomKey, keyboard.targetKey.offset());
-
-            falling.passiv();
+                falling.set(randomKey, keyboard.targetKey.offset());
+            }
         },
         pass: function () {
-            if (!this.isHitted && keyboard.targetKey) {
+            if (
+                !this.isHitted &&
+                keyboard.targetKey &&
+                game.status != 'stopped'
+            ) {
+                game.stop();
+
+                log(game.status + '1');
+
                 health.reduce();
 
                 keyboard.darken();
+
+                falling.stop();
+
+                ticker.stop();
+
+                nextMoveTimer = setTimeout(nextMove, 10);
+
+                log(game.status);
             }
         },
         hit: function () {
@@ -153,7 +183,7 @@ $(function () {
             this.key = key;
         },
         set: function (randomKey, x) {
-            if (this.key) {
+            if (this.key && game.status != 'stopped') {
                 this.key.offset(x);
                 this.key.text(randomKey);
             }
@@ -197,11 +227,6 @@ $(function () {
         hiding: function () {
             this.key.hide();
         },
-        // passiv: function () {
-        //     if (game.pass) {
-        //         this.key.text(randomKey);
-        //     }
-        // },
     };
 
     var health = {
@@ -327,7 +352,9 @@ $(function () {
     }
 
     function nextMove() {
+        log('next move');
         game.start();
+        log(game.status + '4');
     }
 
     countdown(3);
@@ -363,12 +390,14 @@ $(function () {
         var target = $(event.target);
 
         if (target.is($('#exit')) || target.is($('#exit p'))) {
-            falling.hiding();
-            $('#pause').hide();
-            $('#game-over')
-                .show()
-                .html($('#game-over').html() + score.number);
-            ticker.stop();
+            if (game.status != 'stopped') {
+                falling.hiding();
+                $('#pause').hide();
+                $('#game-over')
+                    .show()
+                    .html($('#game-over').html() + score.number);
+                ticker.stop();
+            }
         } else if (
             target.is($('#continuation')) ||
             target.is($('#continuation p'))
