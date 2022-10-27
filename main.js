@@ -25,8 +25,8 @@ $(function () {
                 ticker.stop();
                 ticker.start();
                 falling.start();
-                // $('#pause').hide();
                 this.status = 'running';
+                $('#timerStart').css('display', 'none');
             }
         },
         pause: function () {
@@ -71,6 +71,8 @@ $(function () {
             $('#random-key').text(randomKey);
 
             falling.set(randomKey, keyboard.targetKey.offset());
+
+            falling.passiv();
         },
         pass: function () {
             if (!this.isHitted && keyboard.targetKey) {
@@ -152,8 +154,8 @@ $(function () {
         },
         set: function (randomKey, x) {
             if (this.key) {
-                this.key.text(randomKey);
                 this.key.offset(x);
+                this.key.text(randomKey);
             }
         },
         start: function () {
@@ -195,6 +197,11 @@ $(function () {
         hiding: function () {
             this.key.hide();
         },
+        // passiv: function () {
+        //     if (game.pass) {
+        //         this.key.text(randomKey);
+        //     }
+        // },
     };
 
     var health = {
@@ -291,6 +298,22 @@ $(function () {
 
     // ------- отсюда выполняется код при загрузке страницы ---------------
 
+    function countdown(seconds) {
+        $('#falling-key').css('animation', 'none');
+        $('#falling-key').css('display', 'none');
+
+        var timerShow = $('#timer').html(seconds);
+
+        seconds--;
+
+        if (seconds < 0) {
+            $('#falling-key').css('display', 'block');
+            mainLoop();
+        } else {
+            setTimeout(countdown, 1000, [seconds]);
+        }
+    }
+
     game.init();
 
     function mainLoop() {
@@ -307,7 +330,7 @@ $(function () {
         game.start();
     }
 
-    mainLoop();
+    countdown(3);
 
     $('body').keydown(function (event) {
         if (game.status == 'running') {

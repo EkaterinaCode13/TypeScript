@@ -36,8 +36,6 @@ header {
     height: 26px;
     margin-left: -4px;
     background-color: #fca311;
-    /* border-left: solid 1px #e5e5e5; */
-    /*    border: solid 1px red;*/
 }
 
 .health-animation {
@@ -58,13 +56,11 @@ header {
     width: 60px;
     height: 43px;
     justify-self: end;
-    /* border-left: solid 1px #e5e5e5;
-    border-right: solid 1px #e5e5e5; */
     text-align: center;
     padding: 5px;
     font-family: inherit;
+    font-weight: 400;
     font-size: 30px;
-    /* background-color: #14213d; */
     color: #fca311;
 }
 
@@ -72,28 +68,23 @@ header {
     width: 40px;
     height: 43px;
     justify-self: center;
-    /* border-left: solid 1px #e5e5e5;
-    border-right: solid 1px #e5e5e5; */
     text-align: center;
-    /* padding-top: 4px; */
     font-family: inherit;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 37px;
-    /* background-color: #14213d; */
     color: #fca311;
 }
 
 #falling-key {
     width: 40px;
     height: 43px;
-    /* border: solid 2px #000000; */
     color: #14213d;
     background-color: #e5e5e5;
     text-align: center;
     align-items: center;
     font-family: inherit;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 500;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -141,6 +132,27 @@ header {
     color: #e5e5e5;
 }
 
+#timerStart {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    margin-top: 30px;
+    font-family: inherit;
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e5e5e5;
+}
+
 #loss {
     display: none;
     text-align: center;
@@ -164,13 +176,11 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* visibility: hidden; */
     width: 400px;
     height: 150px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 60px;
-    /* font-family: inherit; */
     font-size: 30px;
     border: solid 2px #e5e5e5;
     color: #e5e5e5;
