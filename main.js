@@ -62,7 +62,6 @@ $(function () {
             if (this.status != 'stopped') {
                 if (!health.level && this.status != 'stopped') {
                     log(game.status + '3');
-                    log('ЗАШЕЛ ЕЩЕ РАЗ');
                     falling.stop();
                     falling.hiding();
                     keyboard.darken();
@@ -72,6 +71,7 @@ $(function () {
                         .html($('#loss').html() + score.number);
                     this.status = 'stopped';
                     clearTimeout(nextMoveTimer);
+                    setTimeout(returnStart, 5000);
                 }
             }
         },
@@ -357,6 +357,10 @@ $(function () {
         log(game.status + '4');
     }
 
+    function returnStart() {
+        window.location.href = 'startTS.html';
+    }
+
     countdown(3);
 
     $('body').keydown(function (event) {
@@ -397,6 +401,7 @@ $(function () {
                     .show()
                     .html($('#game-over').html() + score.number);
                 ticker.stop();
+                setTimeout(returnStart, 5000);
             }
         } else if (
             target.is($('#continuation')) ||
