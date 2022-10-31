@@ -28,16 +28,6 @@ $(function () {
                 falling.start();
                 this.status = 'running';
                 $('#timerStart').css('display', 'none');
-                // if (!health.level) {
-                //     this.status = 'stopped';
-
-                //     // clearTimeout(nextMoveKey);
-
-                //     $('#falling-key').css('animation', 'none');
-                //     $('#falling-key').css('display', 'none');
-                //     game.stop();
-                //     log('нет жизни');
-                // }
             }
         },
         pause: function () {
@@ -68,10 +58,11 @@ $(function () {
                     ticker.stop();
                     $('#loss')
                         .show()
-                        .html($('#loss').html() + score.number);
+                        .html($('#loss p').html() + score.number);
+                    $('#loading-spinner').show();
                     this.status = 'stopped';
                     clearTimeout(nextMoveTimer);
-                    setTimeout(returnStart, 5000);
+                    setTimeout(returnStart, 4000);
                 }
             }
         },
@@ -399,9 +390,10 @@ $(function () {
                 $('#pause').hide();
                 $('#game-over')
                     .show()
-                    .html($('#game-over').html() + score.number);
+                    .html($('#game-over p').html() + score.number);
+                $('#loading-spinner').show();
                 ticker.stop();
-                setTimeout(returnStart, 5000);
+                setTimeout(returnStart, 4000);
             }
         } else if (
             target.is($('#continuation')) ||
