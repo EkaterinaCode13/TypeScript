@@ -4,7 +4,7 @@ $(function () {
     }
 
     var game = {
-        keys: 'fjdksla;ghrueiwoqptyvbnmcx,z./',
+        keys: 'ghfjdksla;',
         delay: 2000,
         status: 'stopped',
         isHitted: false,
@@ -61,7 +61,7 @@ $(function () {
                         .html($('#loss p').html() + score.number);
                     $('#loading-spinner').show();
                     this.status = 'stopped';
-                    clearTimeout(nextMoveTimer);
+                    clearTimeout(this.nextMoveTimer);
                     setTimeout(returnStart, 4000);
                 }
             }
@@ -77,6 +77,45 @@ $(function () {
                 $('#random-key').text(randomKey);
 
                 falling.set(randomKey, keyboard.targetKey.offset());
+
+                if (score.number > 30) {
+                    game.delay = 1500;
+                    keyboard.init();
+                }
+                if (score.number > 60) {
+                    game.delay = 1200;
+                    keyboard.init();
+                }
+                if (score.number > 90) {
+                    game.keys = 'ghfjdksla;tyrueiwoqp';
+                    game.delay = 2000;
+                    keyboard.init();
+                }
+                if (score.number > 120) {
+                    game.keys = 'ghfjdksla;tyrueiwoqp';
+                    game.delay = 1500;
+                    keyboard.init();
+                }
+                if (score.number > 150) {
+                    game.keys = 'ghfjdksla;tyrueiwoqp';
+                    game.delay = 1200;
+                    keyboard.init();
+                }
+                if (score.number > 180) {
+                    game.keys = 'ghfjdksla;tyrueiwoqpvbcnxmz,./';
+                    game.delay = 2000;
+                    keyboard.init();
+                }
+                if (score.number > 210) {
+                    game.keys = 'ghfjdksla;tyrueiwoqpvbcnxmz,./';
+                    game.delay = 1500;
+                    keyboard.init();
+                }
+                if (score.number > 240) {
+                    game.keys = 'ghfjdksla;tyrueiwoqpvbcnxmz,./';
+                    game.delay = 1200;
+                    keyboard.init();
+                }
             }
         },
         pass: function () {
@@ -97,7 +136,7 @@ $(function () {
 
                 ticker.stop();
 
-                nextMoveTimer = setTimeout(nextMove, 10);
+                game.nextMoveTimer = setTimeout(nextMove, 10);
 
                 log(game.status);
             }
