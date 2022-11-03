@@ -388,7 +388,7 @@ $(function () {
     }
 
     function returnStart() {
-        window.location.href = 'startTS.html';
+        window.location.href = 'index.html';
     }
 
     countdown(3);
