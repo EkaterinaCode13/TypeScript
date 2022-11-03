@@ -132,6 +132,10 @@ header {
     color: #e5e5e5;
 }
 
+#start-btn:hover {
+    filter: brightness(150%);
+}
+
 #timerStart {
     display: flex;
     justify-content: center;
