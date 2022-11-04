@@ -132,6 +132,10 @@ header {
     color: #e5e5e5;
 }
 
+#start-btn:hover {
+    filter: brightness(150%);
+}
+
 #timerStart {
     display: flex;
     justify-content: center;
@@ -299,8 +303,10 @@ header {
     border-radius: 4px;
 }
 .highlight {
-    border: solid 1px white;
-    color: white;
+    /* border: solid 1px #14213d; */
+    background-color: #e5e5e5;
+    /* filter: brightness(150%); */
+    color: #14213d;
 }
 
 .colorTargetKey {

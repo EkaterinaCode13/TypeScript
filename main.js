@@ -336,11 +336,14 @@ $(function () {
             }
         },
         press: function (key) {
+            log('press');
+            log($('.button[data-key="' + key.toUpperCase() + '"]').html);
             $('.button[data-key="' + key.toUpperCase() + '"]').addClass(
                 'highlight'
             );
         },
         release: function (key) {
+            log('release');
             $('.button[data-key="' + key.toUpperCase() + '"]').removeClass(
                 'highlight'
             );
@@ -388,13 +391,14 @@ $(function () {
     }
 
     function returnStart() {
-        window.location.href = 'index.html';
+        window.location.href = '/';
     }
 
     countdown(3);
 
     $('body').keydown(function (event) {
         if (game.status == 'running') {
+            log('кнопка  нажата');
             keyboard.press(event.key);
 
             if (
