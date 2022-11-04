@@ -391,7 +391,7 @@ $(function () {
     }
 
     function returnStart() {
-        window.location.href = '/';
+        window.location.href = '.';
     }
 
     countdown(3);
