@@ -1,12 +1,15 @@
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
+@import 'border-box';
+
+$font-main: inherit;
+$font-additional: Arial, Helvetica, sans-serif;
+$background-color: #14213d;
+$accent-color: #fca311;
+$neutral-color: #e5e5e5;
+$dark-color: #000000;
 
 body {
     margin: 0px;
-    background-color: #14213d;
+    background-color: $background-color;
 }
 
 header {
@@ -14,7 +17,7 @@ header {
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: 45px;
-    background-color: #000000;
+    background-color: $dark-color;
     /* border-bottom: solid 1px $accent-color; */
 }
 
@@ -35,7 +38,7 @@ header {
     width: 28px;
     height: 26px;
     margin-left: -4px;
-    background-color: #fca311;
+    background-color: $accent-color;
 }
 
 .health-animation {
@@ -51,16 +54,17 @@ header {
         width: 0;
     }
 }
+
 #score {
     width: 60px;
     height: 43px;
     justify-self: end;
     text-align: center;
     padding: 5px;
-    font-family: inherit;
+    font-family: $font-main;
     font-weight: 400;
     font-size: 30px;
-    color: #fca311;
+    color: $accent-color;
 }
 
 #random-key {
@@ -68,20 +72,20 @@ header {
     height: 43px;
     justify-self: center;
     text-align: center;
-    font-family: inherit;
+    font-family: $font-main;
     font-weight: 500;
     font-size: 37px;
-    color: #fca311;
+    color: $accent-color;
 }
 
 #falling-key {
     width: 40px;
     height: 43px;
-    color: #14213d;
-    background-color: #e5e5e5;
+    color: $background-color;
+    background-color: $neutral-color;
     text-align: center;
     align-items: center;
-    font-family: inherit;
+    font-family: $font-main;
     font-size: 32px;
     font-weight: 500;
     position: relative;
@@ -103,6 +107,7 @@ header {
         top: 350px;
     }
 }
+
 #start-game {
     display: flex;
     justify-content: center;
@@ -118,16 +123,16 @@ header {
     width: 250px;
     height: 250px;
     margin-top: 140px;
-    border: solid 0.2px #fca311;
+    border: solid 0.2px $accent-color;
     border-radius: 50%;
     box-shadow: 3px -2px 10px 1px rgba(255, 255, 255, 0.25),
         3px 0px 10px 1px rgba(255, 255, 255, 0.25);
-    font-family: inherit;
+    font-family: $font-main;
     font-size: 35px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #14213d;
-    color: #e5e5e5;
+    font-family: $font-additional;
+    background-color: $background-color;
+    color: $neutral-color;
 }
 
 #start-btn:hover {
@@ -137,6 +142,7 @@ header {
 #timerStart {
     display: flex;
     justify-content: center;
+
     width: 100%;
     height: 100%;
 }
@@ -149,28 +155,29 @@ header {
     width: 250px;
     height: 250px;
     margin-top: 30px;
-    font-family: inherit;
+    font-family: $font-main;
     font-size: 80px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #e5e5e5;
+    font-family: $font-additional;
+    color: $neutral-color;
 }
 
 #loss {
     display: none;
     text-align: center;
     /* width: 100%; */
-    font-family: inherit;
+    font-family: $font-main;
     font-size: 30px;
-    color: #e5e5e5;
+    color: $neutral-color;
     padding-top: 120px;
 }
 
 #game-over {
     display: none;
     text-align: center;
-    font-family: inherit;
+
+    font-family: $font-main;
     font-size: 30px;
-    color: #e5e5e5;
+    color: $neutral-color;
     padding-top: 120px;
 }
 
@@ -187,7 +194,7 @@ header {
 }
 
 .path {
-    stroke: #fca311;
+    stroke: $accent-color;
     opacity: 0.7;
     stroke-linecap: round;
     animation: dash 6s ease-in-out infinite;
@@ -198,6 +205,7 @@ header {
         transform: rotate(360deg);
     }
 }
+
 @keyframes dash {
     0% {
         stroke-dasharray: 1, 150;
@@ -212,6 +220,7 @@ header {
         stroke-dashoffset: -124;
     }
 }
+
 #pause {
     display: none;
     align-items: center;
@@ -223,9 +232,9 @@ header {
     margin-left: auto;
     margin-top: 60px;
     font-size: 30px;
-    border: solid 2px #e5e5e5;
-    color: #e5e5e5;
-    background-color: #14213d;
+    border: solid 2px $neutral-color;
+    color: $neutral-color;
+    background-color: $background-color;
     border-radius: 4px;
     box-shadow: 3px -2px 10px 1px rgba(255, 255, 255, 0.25),
         3px 0px 10px 1px rgba(255, 255, 255, 0.25);
@@ -234,7 +243,7 @@ header {
 #pause-text {
     display: flex;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $font-additional;
     height: 130px;
 }
 
@@ -251,9 +260,9 @@ header {
     justify-content: center;
     width: 50%;
     height: 100%;
-    background-color: #fca311;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #14213d;
+    background-color: $accent-color;
+    font-family: $font-additional;
+    color: $background-color;
     font-size: 16px;
 }
 
@@ -263,9 +272,9 @@ header {
     align-items: center;
     width: 50%;
     height: 100%;
-    background-color: #e5e5e5;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #14213d;
+    background-color: $neutral-color;
+    font-family: $font-additional;
+    color: $background-color;
     font-size: 16px;
 }
 
@@ -276,8 +285,8 @@ header {
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
-    border-top: solid 1px #fca311;
-    background-color: #000000;
+    border-top: solid 1px $accent-color;
+    background-color: $dark-color;
 }
 
 #keys {
@@ -292,33 +301,33 @@ header {
     width: 50px;
     height: 50px;
     margin: 3px;
-    font-family: inherit;
-    color: #e5e5e5;
-    background-color: #14213d;
-    border: solid 1px #e5e5e5;
+    font-family: $font-main;
+    color: $neutral-color;
+    background-color: $background-color;
+    border: solid 1px $neutral-color;
     border-radius: 4px;
 }
-
 .highlight {
     /* border: solid 1px $background-color; */
-    background-color: #e5e5e5;
+    background-color: $neutral-color;
     /* filter: brightness(150%); */
-    color: #14213d;
+    color: $background-color;
 }
 
 .colorTargetKey {
-    border: solid 2px #fca311;
-    color: #e5e5e5;
+    border: solid 2px $accent-color;
+    color: $neutral-color;
 }
 
-#keys > div:nth-child(2) {
-    margin-left: 110px;
-}
-#keys > div:nth-child(3) {
-    margin-left: 150px;
-}
-#keys > div:nth-child(4) {
-    margin-left: 90px;
-}
+#keys > {
+    div:nth-child(2) {
+        margin-left: 110px;
+    }
+    div:nth-child(3) {
+        margin-left: 150px;
+    }
 
-/*# sourceMappingURL=main.css.map */
+    div:nth-child(4) {
+        margin-left: 90px;
+    }
+}
